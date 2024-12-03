@@ -2,11 +2,11 @@ import { StyleSheet, View, Text, Image, Button } from 'react-native';
 
 export default function HomeScreen() {
   return <View style={styles.container}>
-    <Text>Witaj CodeStoryBro grupo!</Text>
+    <Text style={styles.title}>Witaj CodeStoryBro grupo!</Text>
     <Image
       style={styles.image}
       source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
-    <Button title={'Start!'} onPress={() => alert(`Cześć`)}></Button>   
+    <Button title={'Start!'} onPress={() => alert(`Kliknięcie`)}></Button>   
   </View>
 }
 
@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F0F0'
   },
   title: {
-
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
   },
   image: {
     width: 50,
