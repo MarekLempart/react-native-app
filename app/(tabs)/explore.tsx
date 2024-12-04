@@ -8,10 +8,11 @@ export default function TabTwoScreen() {
       <Text style={styles.label}>Jak się nazywasz?</Text>
       <TextInput
       style={styles.input}
+      placeholder='Twoje imię'
       onChangeText={setName}
       value={name}
       />
-      <Button title='Wyślij!' onPress={() => alert(`Cześć, ${name}`)}></Button>
+      <Button title='Wyślij!' onPress={() => alert(`Cześć, ${name}`)} />
     </View>
   );
 }
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
       padding: 20,
     },
     label: {
-      color: 'dark gray',
+      color: 'green',
       justifyContent: 'center',
       fontSize: 20,
       marginBottom: 10,
