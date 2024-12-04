@@ -6,7 +6,7 @@ export default function TabEmailScreen() {
   const [error, setError] = useState<boolean | null>(null);
 
   const handleOnPress = () => {
-    if (email.indexOf('@') === -1 || email.length < 9) {
+    if (email.indexOf('@') === -1 || email.length < 3) {
         setError(true);
         Alert.alert('Error', 'Nieprawidłowy e-mail!!!');        
     } else {
