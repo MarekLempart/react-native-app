@@ -8,7 +8,7 @@ export default function TabEmailScreen() {
   const handleOnPress = () => {
     if (email.indexOf('@') === -1 || email.length < 3) {
         setError(true);
-        Alert.alert('Error', 'Nieprawidłowy e-mail!!!');        
+        Alert.alert('Error', 'Nieprawidłowy e-mail !!!');        
     } else {
         setError(false);
         Alert.alert('Sukces', `Twój e-mail, to ${email}`, [
@@ -27,7 +27,7 @@ export default function TabEmailScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Jaki jest Twój e-mail?</Text>
+      <Text style={styles.label}>Jaki jest Twój e-mail ?</Text>
       <TextInput
       style={styles.input}
       placeholder='Twój e-mail'
@@ -36,8 +36,8 @@ export default function TabEmailScreen() {
       autoCapitalize='none'
       keyboardType='email-address'
       />
-      <Button title='Sprawdź i Wyślij!' onPress={handleOnPress} />
-      {error && <Text style={styles.error}>Nieprawidłowy adres e-mail!</Text>}
+      <Button title='Sprawdź i Wyślij !' onPress={handleOnPress} />
+      {error && <Text style={styles.error}>Nieprawidłowy adres e-mail !</Text>}
     </View>
   );
 }

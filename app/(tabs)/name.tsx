@@ -1,18 +1,21 @@
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View, TextInput, Button, Text } from 'react-native';
 
-export default function TabTwoScreen() {
+export default function TabNameScreen() {
+  const router = useRouter();
+
   const [name, setName] = useState<string>('');
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Jak się nazywasz?</Text>
+      <Text style={styles.label}>Jak się nazywasz ?</Text>
       <TextInput
       style={styles.input}
       placeholder='Twoje imię'
       onChangeText={setName}
       value={name}
       />
-      <Button title='Wyślij!' onPress={() => alert(`Cześć, ${name}`)} />
+      <Button title='Idź do Home' onPress={() => router.back} />
     </View>
   );
 }
