@@ -16,7 +16,7 @@ export type TUser = {
     geo: {
       lat: string;
       lng: string;
-    }
+    };
   };
   phone: string;
   website: string;
@@ -24,7 +24,7 @@ export type TUser = {
     name: string;
     catchPhrase: string;
     bs: string;
-  }
+  };
 };
 
 export default function HomeScreen() {
@@ -50,7 +50,6 @@ export default function HomeScreen() {
       style={styles.image}
       source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
     <Button title={'Idź do About'} onPress={() => router.push('/(tabs)/about')}></Button>
-    <Button title={'Idź do Details nr 33'} onPress={() => router.push('/details/33')}></Button>
   </View>
 }
 
@@ -61,6 +60,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F0F0F0',
     paddingTop: 60,
+    paddingBottom: 10,
   },
   title: {
     flex: 1,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    marginBottom: 20
+    marginBottom: 50
   },
   userItem: {
     padding: 10,
