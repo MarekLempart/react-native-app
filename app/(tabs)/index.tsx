@@ -49,7 +49,6 @@ export default function HomeScreen() {
     <Image
       style={styles.image}
       source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
-    <Button title={'Idź do About'} onPress={() => router.push('/(tabs)/about')}></Button>
   </View>
 }
 

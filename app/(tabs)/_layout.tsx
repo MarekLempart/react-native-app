@@ -41,17 +41,17 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="location"
         options={{
-          title: 'About',
+          title: 'Location',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
             <Tabs.Screen
-        name="email"
+        name="camera"
         options={{
-          title: 'Email',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Camera',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="chevron.left.forwardslash.chevron.right" color={color} />,
         }}
       />
     </Tabs>
