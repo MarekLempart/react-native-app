@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 // import React, { useRef, useEffect, useState } from 'react';
 import { StyleSheet, View, Button, Text, TouchableOpacity } from 'react-native';
-// import { CameraView, useCameraPermissions } from 'expo-camera';
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -43,7 +42,6 @@ export default function TabCameraScreen() {
 
   return <View style={styles.container}>
       <View style={styles.flexContainer}>
-        {/* <CameraView style={styles.flexContainer} ref={cameraRef} /> */}
         <CameraView style={styles.flexContainer} facing={facing} ref={cameraRef} />
       </View>
 
@@ -76,7 +74,6 @@ const styles = StyleSheet.create({
     },
     button: {
       flex: 1,
-      // alignSelf: 'flex-end',
       alignItems: 'center',
     },
     text: {
