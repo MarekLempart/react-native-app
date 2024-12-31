@@ -1,33 +1,39 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
+// import React, { useRef, useEffect, useState } from 'react';
 import { StyleSheet, View, Button, Text, TouchableOpacity } from 'react-native';
+// import { CameraView, useCameraPermissions } from 'expo-camera';
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TabCameraScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [facing, setFacing] = useState<CameraType>('back');
   const [permission, requestPermission] = useCameraPermissions();
+  const [msg, setMsg] = useState<string | null>(null);
 
-  useEffect(() =>{
-    async function getSize() {
-      if (permission?.granted && cameraRef.current) {
-        const sizes = await cameraRef.current.getAvailablePictureSizesAsync();
-      }
-    }
-    getSize();
-  })
+  // useEffect(() =>{
+  //   async function getSize() {
+  //     if (permission?.granted && cameraRef.current) {
+  //       const sizes = await cameraRef.current.getAvailablePictureSizesAsync();
+  //     }
+  //   }
+  //   getSize();
+  // })
 
   if (!permission) {
     // Camera permissions are still loading.
-    return <View />
+    <View />
   }
 
   if (!permission?.granted) {
     // Camera permissions are not granted yet.
     return (
-      <View style={styles.container}>
-        <Text style={styles.message}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title='grant permission' />
-      </View>
+      <SafeAreaView>      
+        <View style={styles.container}>
+          <Text style={styles.message}>We need your permission to show the camera</Text>
+          <Button onPress={requestPermission} title='grant permission' />
+        </View>
+      </SafeAreaView>
     );
   }
 
@@ -35,33 +41,31 @@ export default function TabCameraScreen() {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
   }
 
-  return (
-    <View style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.flexContainer}>
+        {/* <CameraView style={styles.flexContainer} ref={cameraRef} /> */}
         <CameraView style={styles.flexContainer} facing={facing} ref={cameraRef} />
       </View>
 
       <View style={styles.flexContainer}>
         <Button title='Take picture' onPress={async () => {
           const photo = await cameraRef.current?.takePictureAsync();
-          alert(`Zdjęcie zrobione w wymiarach: ${photo?.width}x${photo?.height}`)
+          setMsg(`Zdjęcie zrobione w wymiarach: ${photo?.width}x${photo?.height}`)
         }} />
+        <Text style={styles.text}>{msg}</Text>
       </View>
 
-    {/* <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-      <Text style={styles.text}>Flip Camera</Text>
-    </TouchableOpacity>  */}
-
-    </View>
-  );
+        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+          <Text style={styles.text}>Flip Camera</Text>
+        </TouchableOpacity>
+    </View>;
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
+        paddingTop: 40,
     },
     flexContainer: {
       flex: 1,
@@ -70,15 +74,9 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       paddingBottom: 10,
     },
-    buttonContainer: {
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: 'transparent',
-      margin: 64,
-    },
     button: {
       flex: 1,
-      alignSelf: 'flex-end',
+      // alignSelf: 'flex-end',
       alignItems: 'center',
     },
     text: {
