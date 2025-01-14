@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Button, Text } from 'react-native';
 import * as Location from 'expo-location';
 
@@ -15,7 +15,6 @@ export default function TabLocationScreen() {
     }
 
     const currentLocation = await Location.getCurrentPositionAsync({});
-
     setLocation(currentLocation.coords);
   }
 
