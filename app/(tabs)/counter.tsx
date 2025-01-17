@@ -3,7 +3,7 @@ import { decrement, increment, incrementByValue, reset } from '@/store/slices/co
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { useDispatch, useSelector } from "react-redux";
 
-export default function HomeScreen() {
+export default function CounterScreen() {
     const counter = useSelector ((state: RootState) => state.counter.value);
     const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ export default function HomeScreen() {
             <Button title="Increment" onPress={() => dispatch(increment())}/>
             <Button title="Decrement" onPress={() => dispatch(decrement())}/>
             <Button title="Reser" onPress={() => dispatch(reset())}/>
-            <Button title="Increment by valye" onPress={() => dispatch(incrementByValue(10))}/>
+            <Button title="Increment by value" onPress={() => dispatch(incrementByValue(10))}/>
         </View>
     );
 }

@@ -47,7 +47,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
-            <Tabs.Screen
+      <Tabs.Screen
         name="camera"
         options={{
           title: 'Camera',
@@ -59,6 +59,13 @@ export default function TabLayout() {
         options={{
           title: 'Couter',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="chevron.left.forwardslash.chevron.right" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
     </Tabs>
